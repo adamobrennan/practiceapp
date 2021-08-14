@@ -1,9 +1,29 @@
 ﻿@using PracticeApplication.Models
 @model List<ComposerViewModel>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div>
+    <h1>Composer Index</h1>
 
-<h1>Composer Index</h1>
+    @foreach (ComposerViewModel m in Model)
+    {
+        <div>
+            <h2>@m.LastName, @m.FirstName</h2>
+            <p>@m.Birthdate.ToShortDateString() - @m.Died.ToShortDateString()</p>
+
+            <h3>List of Works</h3>
+            @foreach (PieceViewModel p in m.Pieces)
+            {
+                <div>
+                    <p>Title: @p.Title</p>
+                    <p>Written: @p.Date.ToShortDateString()</p>
+                </div>
+            }
+        </div>
+    }
+
+</div>
 
