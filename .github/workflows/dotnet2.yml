@@ -18,11 +18,11 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      working-directory: /PracticeApplication
+      working-directory: ./PracticeApplication
       run: dotnet restore
     - name: Build
-      working-directory: /PracticeApplication
+      working-directory: ./PracticeApplication
       run: dotnet build --no-restore
     - name: Test
-      working-directory: /PracticeApplication
+      working-directory: ./PracticeApplication
       run: dotnet test --no-build --verbosity normal
