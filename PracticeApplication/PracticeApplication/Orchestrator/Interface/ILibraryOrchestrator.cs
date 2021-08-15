@@ -8,7 +8,7 @@ namespace PracticeApplication.Orchestrator.Interface
     public interface ILibraryOrchestrator
     {
         List<PieceViewModel> GetPieces();
-        List<PieceViewModel> GetPiecesByComposer(string id);
         List<ComposerViewModel> GetComposers();
+        ComposerViewModel GetComposer(string id);
     }
 }

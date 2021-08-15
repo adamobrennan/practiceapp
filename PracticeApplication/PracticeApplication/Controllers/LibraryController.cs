@@ -23,5 +23,11 @@ namespace PracticeApplication.Controllers
             List<ComposerViewModel> models = _orchestrator.GetComposers();
             return View(models);
         }
+
+        public IActionResult ComposerDetail(string id)
+        {
+            ComposerViewModel model = _orchestrator.GetComposer(id);
+            return View(model);
+        }
     }
 }

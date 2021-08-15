@@ -1,0 +1,39 @@
+﻿@model PracticeApplication.Models.ComposerViewModel
+
+@{
+    ViewData["Title"] = "ComposerDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.LastName, @Model.FirstName</h1>
+
+<div>
+    <div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Birthdate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Birthdate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Died)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Died)
+            </dd>
+        </dl>
+    </div>
+    <hr />
+    <div>
+        @if (Model.Pieces != null)
+        {
+            @for (int i = 0; i < Model.Pieces.Count; i++)
+            {
+                PieceViewModel piece = Model.Pieces[i];
+                <p>@Html.ActionLink($"{piece.Title} - {piece.Date.ToShortDateString()}", "ComposerIndex", "Library")</p>
+            }
+        }
+
+    </div>
+</div>

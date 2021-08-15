@@ -10,17 +10,8 @@
     @foreach (ComposerViewModel m in Model)
     {
         <div>
-            <h2>@m.LastName, @m.FirstName</h2>
+            <h2>@Html.ActionLink($"{@m.LastName}, {@m.FirstName}", "ComposerDetail", "Library", new { id = m.Id })</h2>
             <p>@m.Birthdate.ToShortDateString() - @m.Died.ToShortDateString()</p>
-
-            <h3>List of Works</h3>
-            @foreach (PieceViewModel p in m.Pieces)
-            {
-                <div>
-                    <p>Title: @p.Title</p>
-                    <p>Written: @p.Date.ToShortDateString()</p>
-                </div>
-            }
         </div>
     }
 </div>

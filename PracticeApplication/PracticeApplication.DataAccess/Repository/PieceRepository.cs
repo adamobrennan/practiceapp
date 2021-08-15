@@ -1,4 +1,5 @@
 ﻿using MongoDB.Driver;
+using PracticeApplication.DataAccess.Exceptions;
 using PracticeApplication.DataAccess.Repository.Interface;
 using PracticeApplication.DataAccess.Settings;
 using PracticeApplication.Domain.Entity;
@@ -22,7 +23,8 @@ namespace PracticeApplication.DataAccess.Repository
 
         public Piece GetPieceByTitle(string title)
         {
-            return _pieces.Find(p => p.Title == title).FirstOrDefault();
+            Piece piece = _pieces.Find(p => p.Title == title).FirstOrDefault();
+            return piece ?? throw new PieceNotFoundException($"No pieces found with title {title}.");
         }
 
         public List<Piece> GetPiecesByComposer(string id)

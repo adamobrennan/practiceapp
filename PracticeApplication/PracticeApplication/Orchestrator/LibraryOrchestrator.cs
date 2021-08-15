@@ -33,9 +33,9 @@ namespace PracticeApplication.Orchestrator
             return LibraryMapper.MapPieceCollectionToView(pieces);
         }
 
-        public List<PieceViewModel> GetPiecesByComposer(string id)
+        public ComposerViewModel GetComposer(string id)
         {
-            return GetPieces().Where(p => p.ComposerId == id).ToList();
+            return GetComposers().Where(c => c.Id == id).FirstOrDefault();
         }
     }
 }
