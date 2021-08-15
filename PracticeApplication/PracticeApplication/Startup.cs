@@ -72,7 +72,6 @@ namespace PracticeApplication
                     pattern: "{controller=Library}/{action=ComposerIndex}/{id?}");
                 endpoints.MapRazorPages();
             });
-
         }
     }
 }

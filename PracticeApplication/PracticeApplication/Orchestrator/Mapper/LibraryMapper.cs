@@ -22,7 +22,6 @@ namespace PracticeApplication.Orchestrator.Mapper
             };
         }
 
-
         public static List<ComposerViewModel> MapComposerCollectionToView(List<Composer> entities, List<Piece> pieces)
         {
             return entities.Select(
@@ -41,7 +40,6 @@ namespace PracticeApplication.Orchestrator.Mapper
         {
             List<Piece> composerPieces = pieces.Where(p => p.ComposerId == composer.Id).ToList();
             return MapPieceCollectionToView(composerPieces);
-
         }
 
         public static List<PieceViewModel> MapPieceCollectionToView(List<Piece> pieces)

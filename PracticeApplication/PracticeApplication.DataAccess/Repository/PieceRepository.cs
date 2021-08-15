@@ -11,6 +11,7 @@ namespace PracticeApplication.DataAccess.Repository
     public class PieceRepository : IPieceRepository
     {
         private readonly IMongoCollection<Piece> _pieces;
+
         public PieceRepository(IPracticeDatabaseSettings settings)
         {
             IMongoClient client = new MongoClient(settings.ConnectionString);
@@ -18,6 +19,7 @@ namespace PracticeApplication.DataAccess.Repository
 
             _pieces = db.GetCollection<Piece>(settings.PieceCollectionName);
         }
+
         public Piece GetPieceByTitle(string title)
         {
             return _pieces.Find(p => p.Title == title).FirstOrDefault();
@@ -52,6 +54,5 @@ namespace PracticeApplication.DataAccess.Repository
         {
             _pieces.DeleteOne(p => p.Id == id);
         }
-
     }
 }
