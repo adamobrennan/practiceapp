@@ -18,7 +18,7 @@ namespace PracticeApplication.UnitTests.WebUI.TestData
             ComposerViews = LoadTestComposerViews();
         }
 
-        private List<Composer> LoadTestComposerEntities()
+        private static List<Composer> LoadTestComposerEntities()
         {
             return new List<Composer>()
             {
@@ -41,7 +41,7 @@ namespace PracticeApplication.UnitTests.WebUI.TestData
             };
         }
 
-        private List<ComposerViewModel> LoadTestComposerViews()
+        private static List<ComposerViewModel> LoadTestComposerViews()
         {
             List<PieceViewModel> testPieces = new TestPieces().PieceViews;
             return new List<ComposerViewModel>()

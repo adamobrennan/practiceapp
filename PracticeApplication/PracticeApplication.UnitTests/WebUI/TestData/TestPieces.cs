@@ -17,7 +17,7 @@ namespace PracticeApplication.UnitTests.WebUI.TestData
             PieceViews = LoadTestPieceViewModels();
         }
 
-        private List<PieceViewModel> LoadTestPieceViewModels()
+        private static List<PieceViewModel> LoadTestPieceViewModels()
         {
             return new List<PieceViewModel>()
             {
@@ -45,7 +45,7 @@ namespace PracticeApplication.UnitTests.WebUI.TestData
             };
         }
 
-        private List<Piece> LoadTestPieceEntities()
+        private static List<Piece> LoadTestPieceEntities()
         {
             return new List<Piece>()
             {
