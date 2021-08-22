@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PracticeApplication.Models
 {
@@ -19,10 +17,10 @@ namespace PracticeApplication.Models
         public string LastName { get; set; }
 
         [Display(Name = "Date of Birth")]
-        public DateTime Birthdate { get; set; }
+        public DateTime? Birthdate { get; set; }
 
         [Display(Name = "Date of Death")]
-        public DateTime Died { get; set; }
+        public DateTime? Died { get; set; }
 
         public List<PieceViewModel> Pieces { get; set; }
     }
