@@ -37,5 +37,12 @@ namespace PracticeApplication.Orchestrator
         {
             return GetComposers().Where(c => c.Id == id).FirstOrDefault();
         }
+
+        public string AddComposer(ComposerViewModel composer)
+        {
+            Composer composerEntity = LibraryMapper.MapComposerViewToEntity(composer);
+            string newComposerId = _composerRepository.Insert(composerEntity);
+            return newComposerId;
+        }
     }
 }

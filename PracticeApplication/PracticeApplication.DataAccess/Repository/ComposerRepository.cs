@@ -34,15 +34,17 @@ namespace PracticeApplication.DataAccess.Repository
             return _composers.Find(c => c.LastName == name).ToList();
         }
 
-        public void Insert(Composer data)
+        public string Insert(Composer data)
         {
             _composers.InsertOne(data);
+            return data.Id;
         }
 
         public void Update(string id, Composer data)
         {
             _composers.ReplaceOne(c => c.Id == id, data);
         }
+
         public void Delete(string id)
         {
             _composers.DeleteOne(c => c.Id == id);

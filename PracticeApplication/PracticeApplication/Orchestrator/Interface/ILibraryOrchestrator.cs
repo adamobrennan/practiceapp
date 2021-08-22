@@ -10,5 +10,6 @@ namespace PracticeApplication.Orchestrator.Interface
         List<PieceViewModel> GetPieces();
         List<ComposerViewModel> GetComposers();
         ComposerViewModel GetComposer(string id);
+        string AddComposer(ComposerViewModel composer);
     }
 }

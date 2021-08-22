@@ -29,5 +29,20 @@ namespace PracticeApplication.Controllers
             ComposerViewModel model = _orchestrator.GetComposer(id);
             return View(model);
         }
+
+        public IActionResult AddComposer()
+        {
+            ComposerViewModel model = new ComposerViewModel();
+            return View(model);
+        }
+
+
+        //TODO: call orchestrator to save model and return id
+        [HttpPost]
+        public IActionResult AddComposer(ComposerViewModel model)
+        {
+            string newComposerId = _orchestrator.AddComposer(model);
+            return RedirectToAction("ComposerDetail", new { id = newComposerId });
+        }
     }
 }

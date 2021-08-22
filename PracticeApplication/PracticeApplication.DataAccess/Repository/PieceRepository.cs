@@ -42,9 +42,10 @@ namespace PracticeApplication.DataAccess.Repository
             return _pieces.Find(p => p.Id == id).FirstOrDefault();
         }
 
-        public void Insert(Piece data)
+        public string Insert(Piece data)
         {
             _pieces.InsertOne(data);
+            return data.Id;
         }
 
         public void Update(string id, Piece data)

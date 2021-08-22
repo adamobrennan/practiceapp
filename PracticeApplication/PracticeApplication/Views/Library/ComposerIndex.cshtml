@@ -2,7 +2,7 @@
 @model List<ComposerViewModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Your Library - Composer Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div>
@@ -10,9 +10,12 @@
     @foreach (ComposerViewModel m in Model)
     {
         <div>
-            <h2>@Html.ActionLink($"{@m.LastName}, {@m.FirstName}", "ComposerDetail", "Library", new { id = m.Id })</h2>
+            <h2>@Html.ActionLink($"{@m.LastName}, {@m.FirstName}", "ComposerDetail", new { id = m.Id })</h2>
             <p>@m.Birthdate.ToShortDateString() - @m.Died.ToShortDateString()</p>
         </div>
     }
+    <div>
+        @Html.ActionLink("Add Composer to Library", "AddComposer")
+    </div>
 </div>
 
