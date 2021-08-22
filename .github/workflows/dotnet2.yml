@@ -25,6 +25,4 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       working-directory: ./PracticeApplication
-      with:
-        dotnet-version: 3.1.x
       run: dotnet test --no-build --verbosity normal
