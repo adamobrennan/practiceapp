@@ -42,6 +42,18 @@ namespace PracticeApplication.Orchestrator.Mapper
             return MapPieceCollectionToView(composerPieces);
         }
 
+        internal static Composer MapComposerViewToEntity(ComposerViewModel composer)
+        {
+            return new Composer() 
+            {
+                Id = composer.Id == null ? null : composer.Id,
+                FirstName = composer.FirstName,
+                LastName = composer.LastName,
+                Birthdate = composer.Birthdate,
+                Died = composer.Died
+            };
+        }
+
         public static List<PieceViewModel> MapPieceCollectionToView(List<Piece> pieces)
         {
             return pieces.Select(

@@ -9,7 +9,7 @@ namespace PracticeApplication.DataAccess
     {
         T GetById(string id);
         List<T> GetAll();
-        void Insert(T data);
+        string Insert(T data);
         void Update(string id, T data);
         void Delete(string id);
     }
