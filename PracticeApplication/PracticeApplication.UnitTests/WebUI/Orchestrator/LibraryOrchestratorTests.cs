@@ -53,7 +53,6 @@ namespace PracticeApplication.UnitTests.WebUI.Orchestrator
             // Act
 
             // Assert
-
         }
 
         private IMock<IPieceRepository> SetUpPieceRepository()

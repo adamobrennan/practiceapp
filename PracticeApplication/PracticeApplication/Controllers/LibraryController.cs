@@ -36,7 +36,6 @@ namespace PracticeApplication.Controllers
             return View(model);
         }
 
-
         //TODO: call orchestrator to save model and return id
         [HttpPost]
         public IActionResult AddComposer(ComposerViewModel model)
