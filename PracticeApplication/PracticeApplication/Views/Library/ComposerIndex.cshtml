@@ -1,4 +1,5 @@
-﻿@using PracticeApplication.Models
+﻿@using PracticeApplication.Extensions
+@using PracticeApplication.Models
 @model List<ComposerViewModel>
 
 @{
@@ -11,7 +12,7 @@
     {
         <div>
             <h2>@Html.ActionLink($"{@m.LastName}, {@m.FirstName}", "ComposerDetail", new { id = m.Id })</h2>
-            <p>@m.Birthdate.ToShortDateString() - @m.Died.ToShortDateString()</p>
+            <p>@m.Birthdate.ToShortDate() - @m.Died.ToShortDate()</p>
         </div>
     }
     <div>

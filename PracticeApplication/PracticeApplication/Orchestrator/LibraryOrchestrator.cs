@@ -3,10 +3,8 @@ using PracticeApplication.Domain.Entity;
 using PracticeApplication.Models;
 using PracticeApplication.Orchestrator.Interface;
 using PracticeApplication.Orchestrator.Mapper;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PracticeApplication.Orchestrator
 {
@@ -20,14 +18,14 @@ namespace PracticeApplication.Orchestrator
             _pieceRepository = pieceRepository;
             _composerRepository = composerRepository;
         }
-        public List<ComposerViewModel> GetComposers()
+        public List<ComposerViewModel> GetAllComposers()
         {
             List<Composer> composers = _composerRepository.GetAll();
             List<Piece> pieces = _pieceRepository.GetAll();
             return LibraryMapper.MapComposerCollectionToView(composers, pieces);
         }
 
-        public List<PieceViewModel> GetPieces()
+        public List<PieceViewModel> GetAllPieces()
         {
             List<Piece> pieces = _pieceRepository.GetAll();
             return LibraryMapper.MapPieceCollectionToView(pieces);
@@ -35,7 +33,7 @@ namespace PracticeApplication.Orchestrator
 
         public ComposerViewModel GetComposer(string id)
         {
-            return GetComposers().Where(c => c.Id == id).FirstOrDefault();
+            return GetAllComposers().Where(c => c.Id == id).FirstOrDefault();
         }
 
         public string AddComposer(ComposerViewModel composer)

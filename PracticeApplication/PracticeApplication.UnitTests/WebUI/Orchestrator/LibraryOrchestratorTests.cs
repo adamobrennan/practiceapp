@@ -1,15 +1,11 @@
-﻿using NUnit.Framework;
-using PracticeApplication.Orchestrator;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Moq;
-using PracticeApplication.DataAccess.Repository;
-using PracticeApplication.Domain.Entity;
-using PracticeApplication.UnitTests.WebUI.TestData;
-using PracticeApplication.Models;
-using PracticeApplication.DataAccess.Repository.Interface;
+﻿using Moq;
+using NUnit.Framework;
 using PracticeApplication.DataAccess.Exceptions;
+using PracticeApplication.DataAccess.Repository.Interface;
+using PracticeApplication.Models;
+using PracticeApplication.Orchestrator;
+using PracticeApplication.UnitTests.WebUI.TestData;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PracticeApplication.UnitTests.WebUI.Orchestrator
@@ -38,7 +34,7 @@ namespace PracticeApplication.UnitTests.WebUI.Orchestrator
             List<ComposerViewModel> expected = new TestComposers().ComposerViews;
 
             // Act
-            List<ComposerViewModel> actual = sotOrchestrator.GetComposers();
+            List<ComposerViewModel> actual = sotOrchestrator.GetAllComposers();
 
             // Assert
             Assert.AreEqual(expected.Count, actual.Count);
@@ -62,8 +58,8 @@ namespace PracticeApplication.UnitTests.WebUI.Orchestrator
             mock.Setup(m => m.GetPieceByTitle(It.IsAny<string>()))
                 .Returns<string>(s => testPieces.PieceEntities
                         .Where(p => p.Title == s)
-                        .FirstOrDefault() == null ? 
-                            throw new PieceNotFoundException() : 
+                        .FirstOrDefault() == null ?
+                            throw new PieceNotFoundException() :
                                 testPieces.PieceEntities.Where(p => p.Title == s).First());
             return mock;
         }

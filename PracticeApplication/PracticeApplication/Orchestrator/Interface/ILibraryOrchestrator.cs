@@ -1,14 +1,12 @@
 ﻿using PracticeApplication.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace PracticeApplication.Orchestrator.Interface
 {
     public interface ILibraryOrchestrator
     {
-        List<PieceViewModel> GetPieces();
-        List<ComposerViewModel> GetComposers();
+        List<PieceViewModel> GetAllPieces();
+        List<ComposerViewModel> GetAllComposers();
         ComposerViewModel GetComposer(string id);
         string AddComposer(ComposerViewModel composer);
     }
