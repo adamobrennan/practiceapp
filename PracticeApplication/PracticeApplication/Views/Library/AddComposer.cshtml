@@ -1,4 +1,5 @@
-﻿@model PracticeApplication.Models.ComposerViewModel
+﻿@using PracticeApplication.Extensions
+@model PracticeApplication.Models.ComposerViewModel
 
 @{
     ViewData["Title"] = "AddComposer";
@@ -28,12 +29,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Birthdate" class="control-label"></label>
-                <input asp-for="Birthdate" class="form-control" />
+                <input asp-for="Birthdate" class="form-control" value="@Model.Birthdate.ToShortDate()"/>
                 <span asp-validation-for="Birthdate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Died" class="control-label"></label>
-                <input asp-for="Died" class="form-control" />
+                <input asp-for="Died" class="form-control" value="@Model.Died.ToShortDate()"/>
                 <span asp-validation-for="Died" class="text-danger"></span>
             </div>
             <div class="form-group">
