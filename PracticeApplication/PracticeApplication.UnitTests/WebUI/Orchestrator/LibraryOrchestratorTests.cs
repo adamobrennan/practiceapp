@@ -57,10 +57,9 @@ namespace PracticeApplication.UnitTests.WebUI.Orchestrator
             mock.Setup(m => m.GetAll()).Returns(testPieces.PieceEntities);
             mock.Setup(m => m.GetPieceByTitle(It.IsAny<string>()))
                 .Returns<string>(s => testPieces.PieceEntities
-                        .Where(p => p.Title == s)
-                        .FirstOrDefault() == null ?
+                        .FirstOrDefault(p => p.Title == s) == null ?
                             throw new PieceNotFoundException() :
-                                testPieces.PieceEntities.Where(p => p.Title == s).First());
+                                testPieces.PieceEntities.First(p => p.Title == s));
             return mock;
         }
         private IMock<IComposerRepository> SetUpComposerRepository()
