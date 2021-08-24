@@ -7,7 +7,7 @@ namespace PracticeApplication.Controllers
 {
     public class LibraryController : Controller
     {
-        private ILibraryOrchestrator _orchestrator;
+        private readonly ILibraryOrchestrator _orchestrator;
 
         public LibraryController(ILibraryOrchestrator orchestrator)
         {
@@ -32,7 +32,6 @@ namespace PracticeApplication.Controllers
             return View(model);
         }
 
-        //TODO: call orchestrator to save model and return id
         [HttpPost]
         public IActionResult AddComposer(ComposerViewModel model)
         {
