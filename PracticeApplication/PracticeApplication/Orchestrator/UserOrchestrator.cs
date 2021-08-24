@@ -1,4 +1,5 @@
-﻿using PracticeApplication.DataAccess.Repository;
+﻿using PracticeApplication.DataAccess.Encryption;
+using PracticeApplication.DataAccess.Repository;
 using PracticeApplication.DataAccess.Repository.Interface;
 using PracticeApplication.Domain.Entity;
 using PracticeApplication.WebUI.Models;
@@ -20,6 +21,7 @@ namespace PracticeApplication.WebUI.Orchestrator
         }
         public string AuthenticateUser(UserLoginModel user)
         {
+            user.Password = Salter.Salt(user.Password);
             return _userRepository.Authenticate(user.Username, user.Password);
         }
 
@@ -28,7 +30,7 @@ namespace PracticeApplication.WebUI.Orchestrator
             User userEntity = new User()
             {
                 Username = user.Username,
-                Password = user.Password,
+                Password = Salter.Salt(user.Password),
                 Email = user.Email,
                 FirstName = user.FirstName,
                 LastName = user.LastName,

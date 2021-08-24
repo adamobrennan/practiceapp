@@ -42,7 +42,6 @@ namespace PracticeApplication.DataAccess.Repository
 
         public User CreateUser(User user)
         {
-            user.Password = Salter.Salt(user.Password);
             _users.InsertOne(user);
             return user;
         }
@@ -59,7 +58,7 @@ namespace PracticeApplication.DataAccess.Repository
 
         public string Authenticate(string username, string password)
         {
-            User user = _users.Find(user => user.Email == username && user.Password == Salter.Salt(password)).FirstOrDefault();
+            User user = _users.Find(user => user.Email == username && user.Password == password).FirstOrDefault();
 
             if (user == null)
             {
