@@ -1,14 +1,17 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using PracticeApplication.DataAccess.Repository;
 using PracticeApplication.DataAccess.Repository.Interface;
 using PracticeApplication.DataAccess.Settings;
 using PracticeApplication.Orchestrator;
 using PracticeApplication.Orchestrator.Interface;
+using System.Text;
 
 namespace PracticeApplication
 {
@@ -26,6 +29,24 @@ namespace PracticeApplication
         {
             services.Configure<PracticeDatabaseLocalSettings>(
                 Configuration.GetSection(nameof(PracticeDatabaseLocalSettings)));
+
+            services.AddAuthentication(auth =>
+            {
+                auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                auth.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(bearer => 
+            {
+                bearer.RequireHttpsMetadata = false;
+                bearer.SaveToken = true;
+                bearer.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetSection("JwtKey").ToString())),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
 
             services.AddSingleton<IPracticeDatabaseSettings>(serviceProvider =>
                 serviceProvider.GetRequiredService<IOptions<PracticeDatabaseLocalSettings>>().Value);
