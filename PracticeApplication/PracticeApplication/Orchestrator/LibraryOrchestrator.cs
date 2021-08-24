@@ -12,8 +12,8 @@ namespace PracticeApplication.Orchestrator
 {
     public class LibraryOrchestrator : ILibraryOrchestrator
     {
-        private IPieceRepository _pieceRepository;
-        private IComposerRepository _composerRepository;
+        private readonly IPieceRepository _pieceRepository;
+        private readonly IComposerRepository _composerRepository;
 
         public LibraryOrchestrator(IPieceRepository pieceRepository, IComposerRepository composerRepository)
         {
@@ -35,7 +35,7 @@ namespace PracticeApplication.Orchestrator
 
         public ComposerViewModel GetComposer(string id)
         {
-            return GetComposers().Where(c => c.Id == id).FirstOrDefault();
+            return GetAllComposers().FirstOrDefault(c => c.Id == id);
         }
 
         public string AddComposer(ComposerViewModel composer)

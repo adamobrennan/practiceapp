@@ -28,17 +28,15 @@ namespace PracticeApplication
         {
             services.Configure<PracticeDatabaseLocalSettings>(
                 Configuration.GetSection(nameof(PracticeDatabaseLocalSettings)));
-            
-            services.AddSingleton<IPracticeDatabaseSettings>(sp =>
-                sp.GetRequiredService<IOptions<PracticeDatabaseLocalSettings>>().Value);
+
+            services.AddSingleton<IPracticeDatabaseSettings>(serviceProvider =>
+                serviceProvider.GetRequiredService<IOptions<PracticeDatabaseLocalSettings>>().Value);
+
             services.AddSingleton<IPieceRepository, PieceRepository>();
             services.AddSingleton<IComposerRepository, ComposerRepository>();
+            services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<ILibraryOrchestrator, LibraryOrchestrator>();
-            //services.AddDbContext<ApplicationDbContext>(options =>
-            //    options.UseSqlServer(
-            //        Configuration.GetConnectionString("DefaultConnection")));
-            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-            //    .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

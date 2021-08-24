@@ -46,6 +46,7 @@ namespace PracticeApplication.Orchestrator.Mapper
         {
             return new Composer() 
             {
+                Id = composer.Id,
                 Id = composer.Id == null ? null : composer.Id,
                 FirstName = composer.FirstName,
                 LastName = composer.LastName,
