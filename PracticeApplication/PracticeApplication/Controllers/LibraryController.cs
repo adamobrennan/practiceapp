@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PracticeApplication.DataAccess.Repository.Interface;
 using PracticeApplication.Models;
 using PracticeApplication.Orchestrator.Interface;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PracticeApplication.Controllers
 {
@@ -20,7 +16,7 @@ namespace PracticeApplication.Controllers
 
         public IActionResult ComposerIndex()
         {
-            List<ComposerViewModel> models = _orchestrator.GetComposers();
+            List<ComposerViewModel> models = _orchestrator.GetAllComposers();
             return View(models);
         }
 

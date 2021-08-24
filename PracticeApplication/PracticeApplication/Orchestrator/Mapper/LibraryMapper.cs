@@ -1,9 +1,7 @@
 ﻿using PracticeApplication.Domain.Entity;
 using PracticeApplication.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PracticeApplication.Orchestrator.Mapper
 {
@@ -44,9 +42,8 @@ namespace PracticeApplication.Orchestrator.Mapper
 
         internal static Composer MapComposerViewToEntity(ComposerViewModel composer)
         {
-            return new Composer() 
+            return new Composer()
             {
-                Id = composer.Id,
                 Id = composer.Id == null ? null : composer.Id,
                 FirstName = composer.FirstName,
                 LastName = composer.LastName,
@@ -58,8 +55,8 @@ namespace PracticeApplication.Orchestrator.Mapper
         public static List<PieceViewModel> MapPieceCollectionToView(List<Piece> pieces)
         {
             return pieces.Select(
-                p => new PieceViewModel() 
-                { 
+                p => new PieceViewModel()
+                {
                     Id = p.Id,
                     Title = p.Title,
                     ComposerId = p.ComposerId,

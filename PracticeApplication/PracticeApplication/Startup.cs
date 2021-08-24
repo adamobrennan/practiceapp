@@ -4,13 +4,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
-using Ninject.Activation;
 using PracticeApplication.DataAccess.Repository;
 using PracticeApplication.DataAccess.Repository.Interface;
 using PracticeApplication.DataAccess.Settings;
 using PracticeApplication.Orchestrator;
 using PracticeApplication.Orchestrator.Interface;
-using System;
 
 namespace PracticeApplication
 {
@@ -62,7 +60,7 @@ namespace PracticeApplication
 
             app.UseAuthentication();
             app.UseAuthorization();
-            
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
