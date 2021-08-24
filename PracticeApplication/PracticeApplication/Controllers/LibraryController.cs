@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PracticeApplication.Models;
+using PracticeApplication.WebUI.Models;
 using PracticeApplication.Orchestrator.Interface;
 using System.Collections.Generic;
 

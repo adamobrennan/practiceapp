@@ -1,5 +1,5 @@
 ﻿using PracticeApplication.Domain.Entity;
-using PracticeApplication.Models;
+using PracticeApplication.WebUI.Models;
 using System;
 using System.Collections.Generic;
 

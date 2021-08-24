@@ -12,5 +12,6 @@ namespace PracticeApplication.DataAccess.Repository.Interface
         User CreateUser(User user);
         void UpdateUser(string id, User user);
         void DeleteUser(string id);
+        string Authenticate(string username, string password);
     }
 }

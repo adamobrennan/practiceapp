@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PracticeApplication.Models
+namespace PracticeApplication.WebUI.Models
 {
     public class PieceViewModel
     {

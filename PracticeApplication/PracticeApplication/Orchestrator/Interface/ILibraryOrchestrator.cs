@@ -1,4 +1,4 @@
-﻿using PracticeApplication.Models;
+﻿using PracticeApplication.WebUI.Models;
 using System.Collections.Generic;
 
 namespace PracticeApplication.Orchestrator.Interface

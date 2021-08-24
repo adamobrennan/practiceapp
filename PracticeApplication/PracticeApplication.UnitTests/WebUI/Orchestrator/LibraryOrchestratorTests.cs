@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using PracticeApplication.DataAccess.Exceptions;
 using PracticeApplication.DataAccess.Repository.Interface;
-using PracticeApplication.Models;
+using PracticeApplication.WebUI.Models;
 using PracticeApplication.Orchestrator;
 using PracticeApplication.UnitTests.WebUI.TestData;
 using System.Collections.Generic;

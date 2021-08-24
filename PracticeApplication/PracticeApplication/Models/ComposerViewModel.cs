@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace PracticeApplication.Models
+namespace PracticeApplication.WebUI.Models
 {
     public class ComposerViewModel
     {

@@ -1,6 +1,6 @@
 ﻿using PracticeApplication.DataAccess.Repository.Interface;
 using PracticeApplication.Domain.Entity;
-using PracticeApplication.Models;
+using PracticeApplication.WebUI.Models;
 using PracticeApplication.Orchestrator.Interface;
 using PracticeApplication.Orchestrator.Mapper;
 using System.Collections.Generic;
